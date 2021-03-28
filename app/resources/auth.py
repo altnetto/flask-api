@@ -15,7 +15,7 @@ class Login(Resource):
 
         user = User.query.filter_by(username=username).first()
 
-        if not user and not user.compare_password(password):
+        if not user or not user.compare_password(password):
             return {'message':'Credenciais incorretas'}, 404
 
         data = {
