@@ -12,9 +12,12 @@ def create_app(config_name):
     load_dotenv()
     app.config.from_object(config[config_name])
 
-    api = Api(app)
+    api = Api(app, prefix='/api/v1')
     api.init_app(app)
     
     db.init_app(app)
+
+    from app.resources.contacts import Contacts
+    api.add_resource(Contacts, '/contacts')
 
     return app
