@@ -20,10 +20,10 @@ class Login(Resource):
 
         data = {
             'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = 10)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours = 24)
         }
 
-        token = jwt.encode(data, current_app.config['SECRET_KEY'])
+        token = jwt.encode(payload = data, key = current_app.config['SECRET_KEY'], algorithm='HS256')
 
         return {'access token': token}
 
