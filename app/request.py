@@ -1,8 +1,8 @@
-from flask_restful import reqparse
+from flask_restful.reqparse import RequestParser
 
 
 def only(params: list) -> dict:
-    parser = reqparse.RequestParser()
+    parser = RequestParser()
 
     for param in params:
         parser.add_argument(param)
