@@ -27,34 +27,58 @@ Para acessar o ambiente do docker
 
 Para acessar a shell do banco de dados:
 
->> psql -U postgres
+(docker) >> psql -U postgres
 
 ---------
 
 Para verificar os bancos de dados internos
 
->> \l
+(docker) >> \l
 
 ---------
 
 Para criar um banco de dados
 
->> create database nome_do_banco;
+(docker) >> create database nome_do_banco;
 
 *** Nesse caso, iremos utilizar:
 
->> create database flask_contacts;
+(docker) >> create database flask_contacts;
 
 ----------
 
 Para conectar ao banco de dados em específico
 
->> \connect nome_do_banco;
+(docker) >> \connect nome_do_banco;
 
 ----------
 
 Para detalhar as tabelas (detail)
 
->> \dt
+(docker) >> \dt
 
 ----------
+
+Após criar as classes de models, podemos realizar
+
+(python) >> flask db init
+
+// Nesse ponto, uma pasta chamada migrations será criada dentro da pasta raíz do projeto
+
+
+---------
+
+Após criar o banco de dados, podemos efetuar a migração:
+
+(python) >> flask db migrate
+
+Isso nos permitirá verificar o relacionamento de banco de dados dentro do nosso banco docker
+
+(docker) >> \dt
+
+
+--------
+
+Para atualizar as tabelas no banco de dados, podemos executar
+
+(python) >> flask db upgrade
