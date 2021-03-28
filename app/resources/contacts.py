@@ -2,19 +2,19 @@ from flask_restful import Resource
 
 
 class Contacts(Resource):
-    def get():
+    def get(self):
         return {'message': 'Hello World!'}
 
     
-    def post():
+    def post(self):
         pass
 
     
-    def put():
+    def put(self):
         pass
 
     
-    def delete():
+    def delete(self):
         pass
 
     
