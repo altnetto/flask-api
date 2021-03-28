@@ -15,3 +15,6 @@ def shell_context():
         User = User,
         Contact = Contact
     )
+
+if __name__ == '__main__':
+    app.run()
